@@ -1,0 +1,36 @@
+﻿<Window x:Class="ProjetoDS_Csharp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetoDS_Csharp"
+        mc:Ignorable="d"
+        Title="Login" Height="350" Width="525" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Imagens/Documentos/howtostoredocuments.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Height="23" Margin="367,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" AutomationProperties.IsRequiredForForm="True"/>
+        <Label x:Name="lalUsuario" Content="Usuário" HorizontalAlignment="Left" Margin="302,237,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold" FontSize="14" Height="29" Width="60"/>
+        <Label x:Name="lalSenha" Content="Senha" HorizontalAlignment="Left" Margin="310,273,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold" FontSize="14" Height="29" Width="50"/>
+        <PasswordBox x:Name="txtSenha" HorizontalAlignment="Left" Margin="367,276,0,0" VerticalAlignment="Top" Width="141" Height="23" KeyDown="txtSenha_KeyDown"/>
+        <Button x:Name="btnLogin"  HorizontalAlignment="Left" Margin="374,304,0,0" VerticalAlignment="Top" Width="46" Height="36" Click="btnLogin_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagens/Login/Cadeado_Verde.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnCancelar"  HorizontalAlignment="Left" Margin="450,304,0,0" VerticalAlignment="Top" Width="46" Height="36" Click="btnCancelar_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagens/Login/Cadeado_Red_1.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="lalNomeSistema" Content="Doc Fácil" HorizontalAlignment="Left" Margin="41,23,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold" FontSize="36" Height="69" Width="183" FontFamily="MS Reference Sans Serif" Background="{x:Null}"/>
+
+    </Grid>
+</Window>

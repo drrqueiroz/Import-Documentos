@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="wpf_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ImportaDocumentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuarioSistemaId" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="DataRegistro" Type="datetime" Nullable="false" />
+          <Property Name="ArquivoMortoSN" Type="bit" Nullable="false" />
+          <Property Name="NumeroDocumento" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Perfils">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CodigoPerfil" Type="nchar" MaxLength="1" />
+          <Property Name="NomePerfil" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UsuarioSistemas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Senha" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Perfil" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_UsuarioSistemaImportaDocumento">
+          <End Role="UsuarioSistemas" Type="Self.UsuarioSistemas" Multiplicity="1" />
+          <End Role="ImportaDocumentos" Type="Self.ImportaDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioSistemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportaDocumentos">
+              <PropertyRef Name="UsuarioSistemaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="wpf_dbModelStoreContainer">
+          <EntitySet Name="ImportaDocumentos" EntityType="Self.ImportaDocumentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfils" EntityType="Self.Perfils" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioSistemas" EntityType="Self.UsuarioSistemas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_UsuarioSistemaImportaDocumento" Association="Self.FK_UsuarioSistemaImportaDocumento">
+            <End Role="UsuarioSistemas" EntitySet="UsuarioSistemas" />
+            <End Role="ImportaDocumentos" EntitySet="ImportaDocumentos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="wpf_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ImportaDocumento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioSistemaId" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ArquivoMortoSN" Type="Boolean" Nullable="false" />
+          <Property Name="NumeroDocumento" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="UsuarioSistema" Relationship="Self.FK_UsuarioSistemaImportaDocumento" FromRole="ImportaDocumentos" ToRole="UsuarioSistemas" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CodigoPerfil" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="NomePerfil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UsuarioSistema">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Senha" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Perfil" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ImportaDocumentos" Relationship="Self.FK_UsuarioSistemaImportaDocumento" FromRole="UsuarioSistemas" ToRole="ImportaDocumentos" />
+        </EntityType>
+        <Association Name="FK_UsuarioSistemaImportaDocumento">
+          <End Role="UsuarioSistemas" Type="Self.UsuarioSistema" Multiplicity="1" />
+          <End Role="ImportaDocumentos" Type="Self.ImportaDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioSistemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportaDocumentos">
+              <PropertyRef Name="UsuarioSistemaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="wpf_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ImportaDocumentos" EntityType="Self.ImportaDocumento" />
+          <EntitySet Name="Perfils" EntityType="Self.Perfil" />
+          <EntitySet Name="UsuarioSistemas" EntityType="Self.UsuarioSistema" />
+          <AssociationSet Name="FK_UsuarioSistemaImportaDocumento" Association="Self.FK_UsuarioSistemaImportaDocumento">
+            <End Role="UsuarioSistemas" EntitySet="UsuarioSistemas" />
+            <End Role="ImportaDocumentos" EntitySet="ImportaDocumentos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="wpf_dbModelStoreContainer" CdmEntityContainer="wpf_dbEntities">
+          <EntitySetMapping Name="ImportaDocumentos">
+            <EntityTypeMapping TypeName="wpf_dbModel.ImportaDocumento">
+              <MappingFragment StoreEntitySet="ImportaDocumentos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UsuarioSistemaId" ColumnName="UsuarioSistemaId" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="DataRegistro" ColumnName="DataRegistro" />
+                <ScalarProperty Name="ArquivoMortoSN" ColumnName="ArquivoMortoSN" />
+                <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfils">
+            <EntityTypeMapping TypeName="wpf_dbModel.Perfil">
+              <MappingFragment StoreEntitySet="Perfils">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CodigoPerfil" ColumnName="CodigoPerfil" />
+                <ScalarProperty Name="NomePerfil" ColumnName="NomePerfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuarioSistemas">
+            <EntityTypeMapping TypeName="wpf_dbModel.UsuarioSistema">
+              <MappingFragment StoreEntitySet="UsuarioSistemas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="ProjetoDS_Csharp.View.visualizarImagemWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetoDS_Csharp.View"
+        mc:Ignorable="d"
+        Title="Vizualizador de Documentos" Height="382.271" Width="521.884" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="#FFBDF199">
+        <Button x:Name="btnEsquerda" Content="Esquerda" HorizontalAlignment="Left" Margin="171,320,0,0" VerticalAlignment="Center" Width="75" Click="btnEsquerda_Click"/>
+        <Button x:Name="btnDireita" Content="Direita" HorizontalAlignment="Left" Margin="267,320,0,0" VerticalAlignment="Center" Width="75" Click="btnDireita_Click"/>
+        <Image x:Name="imgDocumentos" Height="310" Margin="10,10,0,0" VerticalAlignment="Top" Width="494" Source="/ProjetoDS_Csharp;component/Imagens/User/Usuario.png" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+
+    </Grid>
+</Window>

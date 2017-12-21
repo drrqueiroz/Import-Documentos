@@ -1,0 +1,4 @@
+﻿insert into Perfils (Id, CodigoPerfil, NomePerfil) values (1,'A', 'Administrador');
+insert into Perfils (Id, CodigoPerfil, NomePerfil) values (2,'A', 'Operador');
+
+insert into UsuarioSistemas (Nome, Perfil, Login, Senha) values ('Davidson Queiroz', 'A', 'admin', 'admin');
