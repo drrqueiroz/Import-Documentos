@@ -44,6 +44,22 @@ namespace ProjetoDS_Csharp.View
             dataGrid.ItemsSource = db.ImportaDocumentos.ToList();
         }
 
+        private void txtPesquisa_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.txtPesquisa.Text != string.Empty)
+            {
+                dataGrid.ItemsSource = db.ImportaDocumentos.Where(x => x.NumeroDocumento.ToString() == this.txtPesquisa.Text |
+                                                x.Nome == this.txtPesquisa.Text |
+                                                x.UsuarioSistema.Nome == this.txtPesquisa.Text |
+                                                //x.DataRegistro.ToString("dd/MM/yyyy") == this.txtPesquisa.Text |
+                                                x.ArquivoMortoSN.ToString() == this.txtPesquisa.Text).ToList();
+            }
+            else
+            {
+                CarrgarImportDocumentos();
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -228,5 +244,7 @@ namespace ProjetoDS_Csharp.View
             }
 
         }
+
+        
     }
 }

@@ -30,15 +30,13 @@ namespace ProjetoDS_Csharp.View
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            CarrgarUsuarioSistema();
-            this.cbxPerfil.ItemsSource = db.Perfils.ToList();
+        {           
             this.txtLogin.Focus();
         }
 
         private void CarrgarUsuarioSistema()
         {
-            //dataGrid.ItemsSource = db.UsuarioSistemas.ToList();
+            dataGrid.ItemsSource = db.UsuarioSistemas.ToList();
         }
 
         /// <summary>
@@ -83,7 +81,8 @@ namespace ProjetoDS_Csharp.View
                 db.SaveChanges();
                 this.btnNovo_Click(sender, e);
                 this.CarrgarUsuarioSistema();
-                MessageBox.Show("Usuário salvo com sucesso.", "Informação", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Usuário salvo com sucesso.", "Informação", 
+                    MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
             catch (Exception ex)

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetoDS_Csharp.View"
         mc:Ignorable="d"
-        Title="Doc Fácil" Height="528.969" Width="767.453" WindowStartupLocation="CenterScreen" Background="{x:Null}">
+        Title="Doc Fácil" Height="528.969" Width="767.453" WindowStartupLocation="CenterScreen" Background="Black">
 
 
 
@@ -13,7 +13,7 @@
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="0"/>
-                <GradientStop Color="#FF3DA416" Offset="0.327"/>
+                <GradientStop Color="#FF84E85F" Offset="0.327"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
@@ -48,7 +48,7 @@
                 </Style>
             </ListBox.ItemContainerStyle>
 
-            <Expander Name="menuCadastro" Background="#FF3DA416">
+            <Expander Name="menuCadastro" Background="#FF84E85F">
                 <Expander.Header>
                     <BulletDecorator>
                         <BulletDecorator.Bullet>
@@ -62,7 +62,7 @@
                 </WrapPanel>
             </Expander>
 
-            <Expander Background="#FF3DA416">
+            <Expander Background="#FF84E85F">
                 <Expander.Header>
                     <BulletDecorator>
                         <BulletDecorator.Bullet>

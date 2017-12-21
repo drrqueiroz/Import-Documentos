@@ -205,9 +205,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositorio\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Imagens\Documentos\digitalizacao-de-documentos-para-empresas.jpg" />
     <Resource Include="Imagens\Documentos\Documentos.jpg" />

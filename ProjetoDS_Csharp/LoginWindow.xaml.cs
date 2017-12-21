@@ -46,7 +46,8 @@ namespace ProjetoDS_Csharp
                 }
                 else
                 {
-                    
+                    this.txtLogin.Text = string.Empty;
+                    this.txtSenha.Password = string.Empty;
                     MessageBox.Show("Usuário ou senha esta incorreto.", "Falha de Autenticação", 
                         MessageBoxButton.OK, MessageBoxImage.Information);
                 }
